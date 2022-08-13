@@ -35,8 +35,8 @@ def pyramid(image, scale = 1.5, minSize = 30, maxSize = 1000):
 # http://www.pyimagesearch.com/2015/03/23/sliding-windows-for-object-detection-with-python-and-opencv/
 #
 def sliding_window(image, stepSize, windowSize):
-    for y in xrange(0, image.shape[0], stepSize):
-        for x in xrange(0, image.shape[1], stepSize):
+    for y in range(0, image.shape[0], stepSize):
+        for x in range(0, image.shape[1], stepSize):
             yield (x, y, image[y:y+windowSize[1], x:x+windowSize[1]])
 
 
@@ -64,7 +64,7 @@ t0 = time.time()
 for p in pyramid(prototypeImg, minSize = 50, maxSize = targetImage.shape[0]):
     for (x, y, window) in sliding_window(targetImage, stepSize = 2, windowSize = p.shape):
         if window.shape[0] != p.shape[0] or window.shape[1] != p.shape[1]:
-			continue
+            continue
 
         tempSim = compareImages(p, window)
         if(tempSim > maxSim):
@@ -79,7 +79,7 @@ print(maxBox)
 buff1 = 10
 (x, y, w, h) = maxBox
 
-cv2.rectangle(targetImage,(x-buff1/2,y-buff1/2),(x+w+buff1/2,y+h+buff1/2),(0,255,0),2)
+cv2.rectangle(targetImage,(int(x-buff1/2),int(y-buff1/2)),(int(x+w+buff1/2),int(y+h+buff1/2)),(0,255,0),2)
 
 
 cv2.imshow('image', targetImage)
