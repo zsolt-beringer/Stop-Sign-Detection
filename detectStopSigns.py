@@ -82,6 +82,6 @@ buff1 = 10
 cv2.rectangle(targetImage,(int(x-buff1/2),int(y-buff1/2)),(int(x+w+buff1/2),int(y+h+buff1/2)),(0,255,0),2)
 
 
-cv2.imshow('image', targetImage)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+#cv2.imshow('image', targetImage)
+#cv2.waitKey(0)
+#cv2.destroyAllWindows()
