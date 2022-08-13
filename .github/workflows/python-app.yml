@@ -31,3 +31,6 @@ jobs:
     - name: 03
       run: |
         python detectStopSigns.py -p stopPrototype.png -i Stop\ Sign\ Dataset/3.jpg
+    - name: Ági
+      run: |
+        python detectStopSigns.py -p stopPrototype.png -i Stop\ Sign\ Dataset/H-8640\ Szabadság\ utca\ –\ József\ utca.jpg
